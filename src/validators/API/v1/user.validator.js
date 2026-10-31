@@ -21,9 +21,7 @@ exports.addUserInquiry = [
 
   body("email")
     .notEmpty()
-    .withMessage("Email is required!")
-    .isEmail()
-    .withMessage("Please enter a valid email address!"),
+    .withMessage("Email is required!"),
 
   body("companyName")
     .notEmpty()

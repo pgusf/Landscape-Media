@@ -38,7 +38,7 @@ class UserController {
   
     } = req.body;
 
-    const product = new db.user({
+    const inquiry = new db.inquiry({
       howShouldWeMeet,
       pickDay,
       chooseTime,
@@ -50,14 +50,14 @@ class UserController {
   
     });
 
-    const savedProduct = await product.save();
+    const savedInquiry = await inquiry.save();
 
     const response = commonUtils.successRes(
       201,
-      "Product added successfully."
+      "Inquiry added successfully."
     );
 
-    response.data = savedProduct;
+    response.data = savedInquiry;
 
     return res.status(201).send(response);
   } catch (error) {
@@ -74,7 +74,7 @@ class UserController {
 
 getUserInquiry = async (req, res, next) => {
   try {
-    const inquiries = await db.user.find().sort({ createdAt: -1 });
+    const inquiries = await db.inquiry.find().sort({ createdAt: -1 });
 
     const response = commonUtils.successRes(
       200,

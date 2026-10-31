@@ -9,8 +9,7 @@
     //const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     async function serverStart() {
-        // console.log("Waiting for 10 seconds before starting...");
-        // await sleep(10000); // Delay for 5 seconds
+       
         console.log("MAINTAIN RESTART SERVER - START");
 
 

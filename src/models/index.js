@@ -20,5 +20,6 @@ db.url = dbConfig.url;
 
 db.user = require("./user.model.js")(mongoose);
 db.product = require("./product.model.js")(mongoose);
+db.inquiry = require("./inquiry.model.js")(mongoose);
 
 module.exports = db;
