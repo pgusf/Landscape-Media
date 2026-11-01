@@ -27,5 +27,9 @@ router.get(
   awaitHandlerFactory(userController.getUserInquiry)
 );
 
+router.get(
+  "/delete-user-inquiry",
+  awaitHandlerFactory(userController.deleteUserInquiry)
+);
 
 module.exports = router;

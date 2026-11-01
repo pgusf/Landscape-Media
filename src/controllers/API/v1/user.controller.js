@@ -96,6 +96,38 @@ getUserInquiry = async (req, res, next) => {
   }
 };
 
+deleteUserInquiry = async (req, res, next) => {
+  try {
+    const { inquiryId } = req.query;
+
+    // Find and delete inquiry by ID
+    const deletedInquiry = await db.inquiry.findByIdAndDelete(inquiryId);
+
+    // Check if inquiry exists
+    if (!deletedInquiry) {
+      throw new httpException(404, "Inquiry not found.");
+    }
+
+    const response = commonUtils.successRes(
+      200,
+      "Inquiry deleted successfully."
+    );
+
+    response.data = deletedInquiry;
+
+    return res.status(200).send(response);
+  } catch (error) {
+    if (error.statuscode !== undefined) {
+      throw new httpException(error.statuscode, error.msg, error.data);
+    } else {
+      console.log(error);
+      throw new httpException(500, "Something went wrong", {
+        errors: error,
+      });
+    }
+  }
+};
+
 
   
 }
